@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login page</title>
+<style>
+	h2{
+		margin-left:20px;
+		color:#FC9D47;
+	}
+	body, html {
+	  height: 100%;
+	  font-family: Arial, Helvetica, sans-serif;
+	  background-color:#302E2C;
+	  opacity:100%;
+	}
+
+	* {
+	  box-sizing: border-box;
+	}
+
+	.bg-img {
+	  background-image: url("img/background.png");
+	  min-height: 600px;
+	  background-position: center;
+	  background-repeat: no-repeat;
+	  background-size: cover;
+	  position: relative;
+	}
+
+	.container {
+	  position: absolute;
+	  right: 0;
+	  margin: 60px;
+	  max-width: 300px;
+	  padding: 16px;
+	  background-color: white;
+	}
+
+	input[type=text], input[type=password] {
+	  width: 100%;
+	  padding: 15px;
+	  margin: 5px 0 22px 0;
+	  border: none;
+	  background: #f1f1f1;
+	}
+
+	input[type=text]:focus, input[type=password]:focus {
+	  background-color: #ddd;
+	  outline: none;
+	}
+
+	.btn {
+	  background-color: black;
+	  color: #FC9D47;
+	  padding: 16px 20px;
+	  border: none;
+	  cursor: pointer;
+	  width: 100%;
+	  opacity: 0.9;
+	}
+
+	.btn:hover {
+	  opacity: 1;
+	}
+	
+</style>
+<script>  
+function verifyPassword() {  
+  var pw = document.getElementById("pass").value;  
+  if(pw == "") {  
+     document.getElementById("message").innerHTML = "**Password is missing!";  
+     return false;  
+  }  
+
+  if(pw.length < 8) {  
+     document.getElementById("message").innerHTML = "**Password length must be atleast 8 characters";  
+     return false;  
+  }  
+
+  if(pw.length > 15) {  
+     document.getElementById("message").innerHTML = "**Password length must not exceed 15 characters";  
+     return false;  
+  } else {  
+     alert("Password is correct");  
+  }  
+}
+</script> 
+</head> 
+<body>
+<h2>Start the Exploration</h2>
+<div class="bg-img">
+  <form onsubmit ="return verifyPassword()" action="frontpage.html" class="container">
+    <h1>Login</h1>
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" id = "email" placeholder="Enter Email" name="email" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" id = "pass" placeholder="Enter Password" name="psw">
+	<span id = "message" style="color:#FC9D47"> </span> <br><br>
+
+    <button type="submit" class="btn">Login</button>
+  </form>
+</div>
+
+</body>
+</html>
